@@ -1,6 +1,5 @@
 %define oname gst-python
 %define name gstreamer0.10-python
-%define pygobject 2.11.2
 
 Name:		%name
 Version: 0.10.8
@@ -12,9 +11,9 @@ URL:            http://gstreamer.net/
 Source: 	http://gstreamer.freedesktop.org/src/gst-python/%oname-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
-Requires: 	python-gobject >= %pygobject
+Requires: 	pygtk2.0
 BuildRequires:	libgstreamer-plugins-base-devel >= %version
-BuildRequires:	python-gobject >= %pygobject
+BuildRequires:	pygtk2.0-devel
 BuildRequires:	libpython-devel
 BuildRequires:	automake1.8
 #gw for the docs
