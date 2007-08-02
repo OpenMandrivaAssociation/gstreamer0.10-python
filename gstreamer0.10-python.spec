@@ -3,7 +3,7 @@
 %define pygobject 2.11.2
 
 Name:		%name
-Version: 0.10.7
+Version: 0.10.8
 Release: %mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
