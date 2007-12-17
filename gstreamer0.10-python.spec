@@ -9,7 +9,6 @@ Group:		Development/Python
 License: 	LGPL
 URL:            http://gstreamer.net/
 Source: 	http://gstreamer.freedesktop.org/src/gst-python/%oname-%{version}.tar.bz2
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
 BuildRequires:	libgstreamer-plugins-base-devel >= %version
