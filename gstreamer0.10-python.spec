@@ -3,7 +3,7 @@
 
 Name:		%name
 Version: 0.10.8
-Release: %mkrel 2
+Release: %mkrel 3
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License: 	LGPL
