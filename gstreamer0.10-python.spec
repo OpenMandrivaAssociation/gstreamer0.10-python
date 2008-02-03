@@ -1,20 +1,20 @@
 %define oname gst-python
 %define name gstreamer0.10-python
 
-Name:		%name
-Version: 0.10.8
-Release: %mkrel 3
+Name:		%{name}
+Version:	0.10.10
+Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
-License: 	LGPL
-URL:            http://gstreamer.net/
-Source: 	http://gstreamer.freedesktop.org/src/gst-python/%oname-%{version}.tar.bz2
+License:	LGPLv2+
+URL:            http://gstreamer.freedesktop.org/
+Source: 	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
-BuildRequires:	libgstreamer-plugins-base-devel >= %version
+BuildRequires:	libgstreamer-plugins-base-devel >= %{version}
 BuildRequires:	pygtk2.0-devel
-BuildRequires:	libpython-devel
+%py_requires -d
 #BuildRequires:	automake1.8
 #gw for the docs
 #BuildRequires:	xmlto
@@ -27,41 +27,43 @@ to be written in Python.
 %package devel
 Summary:	Python bindings for GStreamer - development files
 Group:		Development/Python
-Requires: %name = %version
+Requires:	%{name} = %{version}
 
 %description devel
 This module contains a binding that allows GStreamer applications
 to be written in Python.
 
-Install this to build programs depending on %name.
+Install this to build programs depending on %{name}.
 
 
 %prep
-%setup -q -n %oname-%{version}
+%setup -q -n %{oname}-%{version}
 
 %build
-%configure2_5x
+%configure2_5x \
+	--disable-valgrind
+
 export XML_CATALOG_FILES=/etc/xml/catalog
 %make 
 
 %install
 
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
-find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,755)
+%defattr(-,root,root)
 %doc AUTHORS NEWS RELEASE README
-%py_platsitedir/gst-0.10/
-%py_platsitedir/pygst*
+%{py_platsitedir}/gst-0.10/
+%{py_platsitedir}/pygst*
 
 %files devel
-%defattr(-,root,root,755)
+%defattr(-,root,root)
 %doc ChangeLog
-%_datadir/gst-python/
-%_libdir/pkgconfig/gst-python-0.10.pc
+%{_datadir}/gst-python/
+%{_libdir}/pkgconfig/gst-python-0.10.pc
