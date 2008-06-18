@@ -2,7 +2,7 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.11
+Version:	0.10.12
 Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
