@@ -8,7 +8,9 @@ Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
-Source: 	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
+Source0:	ttp://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
+# Fix a string literal error - AdamW 2008/12
+Patch0:		gst-python-0.10.13-literal.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
@@ -38,6 +40,7 @@ Install this to build programs depending on %{name}.
 
 %prep
 %setup -q -n %{oname}-%{version}
+%patch0 -p1 -b .literal
 
 %build
 %configure2_5x \
