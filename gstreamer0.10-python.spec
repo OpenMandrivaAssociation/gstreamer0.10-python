@@ -2,19 +2,17 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.13
-Release:	%mkrel 3
+Version:	0.10.14
+Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
-Source0:	ttp://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
-# Fix a string literal error - AdamW 2008/12
-Patch0:		gst-python-0.10.13-literal.patch
+Source0:	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
-BuildRequires:	libgstreamer-plugins-base-devel >= %{version}
+BuildRequires:	libgstreamer-plugins-base-devel >= 0.10.22
 BuildRequires:	pygtk2.0-devel
 %py_requires -d
 #BuildRequires:	automake1.8
@@ -40,7 +38,6 @@ Install this to build programs depending on %{name}.
 
 %prep
 %setup -q -n %{oname}-%{version}
-%patch0 -p1 -b .literal
 
 %build
 %configure2_5x \
