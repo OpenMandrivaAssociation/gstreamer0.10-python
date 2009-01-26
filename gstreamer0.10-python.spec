@@ -3,12 +3,13 @@
 
 Name:		%{name}
 Version:	0.10.14
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 Source0:	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
+Patch0:		gst-python-0.10.14-linkage.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
@@ -38,6 +39,7 @@ Install this to build programs depending on %{name}.
 
 %prep
 %setup -q -n %{oname}-%{version}
+%patch0 -p0 -b .linkage
 
 %build
 %configure2_5x \
