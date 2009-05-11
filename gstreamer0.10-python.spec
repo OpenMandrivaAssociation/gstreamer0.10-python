@@ -40,7 +40,7 @@ Install this to build programs depending on %{name}.
 
 %prep
 %setup -q -n %{oname}-%{version}
-%patch0 -p0 -b .linkage
+#%patch0 -p0 -b .linkage
 
 %build
 %configure2_5x \
