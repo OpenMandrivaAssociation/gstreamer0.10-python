@@ -2,18 +2,19 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.14
-Release:	%mkrel 2
+Version:	0.10.15
+Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 Source0:	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
+#gw FIXME is this still needed?
 Patch0:		gst-python-0.10.14-linkage.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
-BuildRequires:	libgstreamer-plugins-base-devel >= 0.10.22
+BuildRequires:	libgstreamer-plugins-base-devel >= 0.10.23
 BuildRequires:	pygtk2.0-devel
 %py_requires -d
 #BuildRequires:	automake1.8
@@ -64,6 +65,7 @@ rm -rf %{buildroot}
 %{py_platsitedir}/gst-0.10/
 %{py_platsitedir}/gstoption.so
 %{py_platsitedir}/pygst*
+%_libdir/gstreamer-0.10/libgstpython.so
 
 %files devel
 %defattr(-,root,root)
