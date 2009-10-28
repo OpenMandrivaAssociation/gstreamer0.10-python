@@ -3,14 +3,15 @@
 
 Name:		%{name}
 Version:	0.10.17
-Release:	%mkrel 2
+Release:	%mkrel 3
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 Source0:	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
-#gw still needed, see bug #54969
 Patch0:		gst-python-0.10.17-linkage.patch
+#gw reall fix python dir (bug #54969)
+Patch1: gst-python-0.10.17-fix-python-detection.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
@@ -40,6 +41,7 @@ Install this to build programs depending on %{name}.
 %prep
 %setup -q -n %{oname}-%{version}
 %patch0 -p1 -b .linkage
+%patch1 -p1 -b .fix-python-detection
 aclocal -I common/m4
 autoconf
 automake
