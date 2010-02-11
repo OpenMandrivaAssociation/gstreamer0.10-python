@@ -2,8 +2,8 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.17
-Release:	%mkrel 3
+Version:	0.10.18
+Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
