@@ -2,7 +2,7 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.18
+Version:	0.10.19
 Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
@@ -42,9 +42,7 @@ Install this to build programs depending on %{name}.
 %setup -q -n %{oname}-%{version}
 %patch0 -p1 -b .linkage
 %patch1 -p1 -b .fix-python-detection
-aclocal -I common/m4
-autoconf
-automake
+autoreconf -fi
 
 %build
 %configure2_5x \
