@@ -2,8 +2,8 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.19
-Release:	%mkrel 2
+Version:	0.10.20
+Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
@@ -11,7 +11,7 @@ URL:            http://gstreamer.freedesktop.org/
 Source0:	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
 Patch0:		gst-python-0.10.17-linkage.patch
 #gw reall fix python dir (bug #54969)
-Patch1: gst-python-0.10.17-fix-python-detection.patch
+Patch1: gst-python-0.10.20-fix-python-detection.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
