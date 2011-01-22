@@ -2,7 +2,7 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.20
+Version:	0.10.21
 Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
@@ -15,7 +15,7 @@ Patch1: gst-python-0.10.20-fix-python-detection.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires: 	python
 Requires: 	pygtk2.0
-BuildRequires:	libgstreamer-plugins-base-devel >= 0.10.24.2
+BuildRequires:	libgstreamer-plugins-base-devel >= 0.10.32
 BuildRequires:	pygtk2.0-devel
 %py_requires -d
 #gw for the docs
