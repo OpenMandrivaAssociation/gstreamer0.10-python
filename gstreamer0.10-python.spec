@@ -2,8 +2,8 @@
 %define name gstreamer0.10-python
 
 Name:		%{name}
-Version:	0.10.21
-Release:	%mkrel 2
+Version:	0.10.22
+Release:	%mkrel 1
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
@@ -80,3 +80,4 @@ rm -rf %{buildroot}
 %doc ChangeLog
 %{_datadir}/gst-python/
 %{_libdir}/pkgconfig/gst-python-0.10.pc
+%_includedir/gstreamer-0.10/gst/pygst*
