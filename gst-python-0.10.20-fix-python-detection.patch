@@ -1,0 +1,13 @@
+diff -p -up gst-python-0.10.20/acinclude.m4.fix-python-detection gst-python-0.10.20/acinclude.m4
+diff -p -up gst-python-0.10.20/plugin/gstpythonplugin.c.fix-python-detection gst-python-0.10.20/plugin/gstpythonplugin.c
+--- gst-python-0.10.20/plugin/gstpythonplugin.c.fix-python-detection	2010-11-04 11:12:25.000000000 +0100
++++ gst-python-0.10.20/plugin/gstpythonplugin.c	2010-12-02 11:29:13.000000000 +0100
+@@ -367,7 +367,7 @@ plugin_init (GstPlugin * plugin)
+     GST_LOG ("loading libpython");
+     libpython =
+         g_module_open (PY_LIB_LOC "/libpython" PYTHON_VERSION "."
+-        PY_LIB_SUFFIX, 0);
++        PY_LIB_SUFFIX ".1.0" , 0);
+     if (!libpython) {
+       GST_WARNING ("Couldn't g_module_open libpython. Reason: %s",
+           g_module_error ());

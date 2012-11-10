@@ -1,0 +1,36 @@
+diff -p -up gst-python-0.10.17/gst/Makefile.am.linkage gst-python-0.10.17/gst/Makefile.am
+--- gst-python-0.10.17/gst/Makefile.am.linkage	2009-09-16 23:01:25.000000000 +0200
++++ gst-python-0.10.17/gst/Makefile.am	2009-10-28 21:56:30.000000000 +0100
+@@ -1,6 +1,6 @@
+ common_cflags = $(PYGOBJECT_CFLAGS) $(GST_CFLAGS) $(GST_OPTION_CFLAGS) -fno-strict-aliasing
+ common_libadd = $(GST_LIBS) $(GST_OPTION_LIBS)
+-common_ldflags = -module -avoid-version
++common_ldflags = -module -avoid-version `python-config --libs`
+ 
+ pkgpyexecdir = $(pyexecdir)/gst-$(GST_MAJORMINOR)/gst
+ 
+@@ -49,9 +49,9 @@ GEN_FILES = arg-types.py gst-types.defs 
+ 
+ # GStreamer bindings
+ _gst_la_CFLAGS = $(common_cflags)
+-_gst_la_LIBADD = $(common_libadd) $(GST_BASE_LIBS)
+-_gst_la_LDFLAGS = $(common_ldflags) -export-symbols-regex "^(init_gst|_PyGObject_API|pygstminiobject_).*" \
+-	$(GST_BASE_LIBS) $(GST_CONTROLLER_LIBS) $(GST_NET_LIBS) $(GST_DP_LIBS)
++_gst_la_LIBADD = $(common_libadd) $(GST_BASE_LIBS) \
++	$(GST_CONTROLLER_LIBS) $(GST_NET_LIBS) $(GST_DP_LIBS)
++_gst_la_LDFLAGS = $(common_ldflags) -export-symbols-regex "^(init_gst|_PyGObject_API|pygstminiobject_).*"
+ _gst_la_SOURCES = 		\
+ 	gst-argtypes.c 		\
+ 	gstmodule.c 		\
+diff -p -up gst-python-0.10.17/Makefile.am.linkage gst-python-0.10.17/Makefile.am
+--- gst-python-0.10.17/Makefile.am.linkage	2009-04-21 22:07:24.000000000 +0200
++++ gst-python-0.10.17/Makefile.am	2009-10-28 21:55:27.000000000 +0100
+@@ -2,7 +2,7 @@ SUBDIRS = common codegen gst examples pl
+ 
+ common_cflags = $(PYTHON_INCLUDES) $(PYGOBJECT_CFLAGS) $(GST_CFLAGS) $(GST_OPTION_CFLAGS) -fno-strict-aliasing
+ common_libadd = $(GST_LIBS) $(GST_OPTION_LIBS)
+-common_ldflags = -module -avoid-version
++common_ldflags = -module -avoid-version `python-config --libs`
+ 
+ # include before EXTRA_DIST for win32 assignment
+ include $(top_srcdir)/common/win32.mak
