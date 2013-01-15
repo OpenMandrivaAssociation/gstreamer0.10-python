@@ -12,7 +12,7 @@ Source0:	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar
 Patch0:		gst-python-0.10.17-linkage.patch
 #gw reall fix python dir (bug #54969)
 Patch1: gst-python-0.10.20-fix-python-detection.patch
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
+Patch2:		gst-python-automake-1.13.patch
 Requires: 	python
 Requires: 	pygtk2.0
 BuildRequires:	libgstreamer-plugins-base-devel >= 0.10.32
@@ -40,8 +40,7 @@ Install this to build programs depending on %{name}.
 
 %prep
 %setup -q -n %{oname}-%{version}
-%patch0 -p1 -b .linkage
-%patch1 -p1 -b .fix-python-detection
+%apply_patches
 autoreconf -fi
 
 %build

@@ -1,0 +1,11 @@
+--- gst-python-0.10.22/configure.ac.bero	2013-01-15 22:34:51.205305545 +0100
++++ gst-python-0.10.22/configure.ac	2013-01-15 22:34:57.794226339 +0100
+@@ -22,7 +22,7 @@ dnl can autoconf find the source ?
+ AC_CONFIG_SRCDIR([gst/gstmodule.c])
+ 
+ dnl define the output header for config
+-AM_CONFIG_HEADER([config.h])
++AC_CONFIG_HEADERS([config.h])
+ 
+ dnl AM_MAINTAINER_MODE only provides the option to configure to enable it
+ AM_MAINTAINER_MODE
