@@ -4,7 +4,7 @@
 
 Name:		%{bname}-python
 Version:	0.10.22
-Release:	2
+Release:	3
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
