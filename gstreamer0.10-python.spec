@@ -17,7 +17,7 @@ Patch2:		gst-python-automake-1.13.patch
 
 BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
 BuildRequires:	pkgconfig(pygtk-2.0)
-%py_requires -d
+BuildRequires:	python-devel
 Requires: 	python
 Requires: 	pygtk2.0
 
