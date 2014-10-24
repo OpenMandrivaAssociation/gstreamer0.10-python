@@ -17,8 +17,8 @@ Patch2:		gst-python-automake-1.13.patch
 
 BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
 BuildRequires:	pkgconfig(pygtk-2.0)
-BuildRequires:	python-devel
-Requires: 	python
+BuildRequires:	pkgconfig(python)
+Requires: 	python2
 Requires: 	pygtk2.0
 
 %description
@@ -42,8 +42,9 @@ Install this to build programs depending on %{name}.
 autoreconf -fi
 
 %build
-%configure2_5x \
-	--disable-valgrind
+export PYTHON=%__python2
+%configure \
+	--disable-valgrind CFLAGS="$CFLAGS -Wno-error"
 
 export XML_CATALOG_FILES=/etc/xml/catalog
 %make 
@@ -59,9 +60,9 @@ export LC_ALL=C
 
 %files
 %doc AUTHORS NEWS RELEASE README
-%{py_platsitedir}/gst-%{api}/
-%{py_platsitedir}/gstoption.so
-%{py_platsitedir}/pygst*
+%{py2_platsitedir}/gst-%{api}/
+%{py2_platsitedir}/gstoption.so
+%{py2_platsitedir}/pygst*
 %{_libdir}/gstreamer-%{api}/libgstpython.so
 
 %files devel
