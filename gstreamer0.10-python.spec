@@ -38,7 +38,7 @@ Install this to build programs depending on %{name}.
 
 %prep
 %setup -qn %{oname}-%{version}
-%apply_patches
+%autopatch -p1
 autoreconf -fi
 
 %build
