@@ -8,7 +8,7 @@ Release:	9
 Summary:	Python bindings for GStreamer
 Group:		Development/Python
 License:	LGPLv2+
-Url:            http://gstreamer.freedesktop.org/
+Url:            https://gstreamer.freedesktop.org/
 Source0:	http://gstreamer.freedesktop.org/src/gst-python/%{oname}-%{version}.tar.bz2
 Patch0:		gst-python-0.10.17-linkage.patch
 #gw reall fix python dir (bug #54969)
