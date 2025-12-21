@@ -15,6 +15,11 @@ Patch0:		gst-python-0.10.17-linkage.patch
 Patch1: gst-python-0.10.20-fix-python-detection.patch
 Patch2:		gst-python-automake-1.13.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
 BuildRequires:	pkgconfig(pygtk-2.0)
 BuildRequires:	pkgconfig(python)
